@@ -1,0 +1,17 @@
+class Solution {
+    List<List<Integer>> ans = new ArrayList<>();
+        public List<List<Integer>> subsets(int[] nums) {    
+        permute(0,new ArrayList<>(),nums);
+        return ans;
+    }
+    
+   private void permute(int n,List<Integer>res,int[]nums){
+       ans.add(new ArrayList<>(res));
+       for(int i = n ;i < nums.length ; i++){
+           res.add(nums[i]);
+           permute(i+1,res,nums);
+           res.remove(res.size()-1);
+       }
+        
+   }
+}
